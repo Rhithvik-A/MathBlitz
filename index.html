@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathBlitz — Gamified Math Learning</title>
+  <meta name="description" content="MathBlitz helps students practice math with gamification, adaptive difficulty, and detailed step-by-step solutions." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Tailwind custom config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            appbg:     '#080815',
+            appdark:   '#0d0d20',
+            appcard:   '#12122e',
+            appborder: '#1e1e45',
+            neon:      '#7c3aed',
+            neonlt:    '#a78bfa',
+            neonpink:  '#ec4899',
+            neoncyan:  '#06b6d4',
+            neongreen: '#10b981',
+            neonorange:'#f59e0b',
+          },
+          animation: {
+            'float':      'float 6s ease-in-out infinite',
+            'glow':       'glow 2s ease-in-out infinite alternate',
+            'slide-up':   'slideUp 0.4s ease-out',
+            'fade-in':    'fadeIn 0.3s ease-out',
+            'pulse-ring': 'pulseRing 1.5s cubic-bezier(0.215,0.61,0.355,1) infinite',
+            'bounce-in':  'bounceIn 0.5s cubic-bezier(0.36,0.07,0.19,0.97)',
+            'shake':      'shake 0.4s ease-in-out',
+            'pop':        'pop 0.3s ease-out',
+          },
+          keyframes: {
+            float:     { '0%,100%': {transform:'translateY(0)'}, '50%': {transform:'translateY(-10px)'} },
+            glow:      { from: {textShadow:'0 0 10px #7c3aed'}, to: {textShadow:'0 0 25px #a78bfa, 0 0 50px #7c3aed'} },
+            slideUp:   { from: {opacity:'0',transform:'translateY(20px)'}, to: {opacity:'1',transform:'translateY(0)'} },
+            fadeIn:    { from: {opacity:'0'}, to: {opacity:'1'} },
+            pulseRing: { '0%': {transform:'scale(.8)',opacity:'1'}, '80%,100%': {transform:'scale(2.4)',opacity:'0'} },
+            bounceIn:  { '0%,20%,40%,60%,80%,100%': {animationTimingFunction:'cubic-bezier(0.215,0.61,0.355,1)'}, '0%': {opacity:'0',transform:'scale3d(.3,.3,.3)'}, '20%': {transform:'scale3d(1.1,1.1,1.1)'}, '40%': {transform:'scale3d(.9,.9,.9)'}, '60%': {opacity:'1',transform:'scale3d(1.03,1.03,1.03)'}, '80%': {transform:'scale3d(.97,.97,.97)'}, '100%': {opacity:'1',transform:'scale3d(1,1,1)'} },
+            shake:     { '0%,100%': {transform:'translateX(0)'}, '20%,60%': {transform:'translateX(-6px)'}, '40%,80%': {transform:'translateX(6px)'} },
+            pop:       { '0%': {transform:'scale(0.9)'}, '50%': {transform:'scale(1.05)'}, '100%': {transform:'scale(1)'} },
+          },
+          backgroundImage: {
+            'gradient-radial':  'radial-gradient(var(--tw-gradient-stops))',
+            'mesh-purple':      'radial-gradient(at 40% 20%, hsla(268,80%,40%,0.3) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,80%,50%,0.2) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355,80%,60%,0.1) 0px, transparent 50%)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-appbg text-white font-sans min-h-screen antialiased overflow-x-hidden">
+
+  <!-- Ambient background orbs -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- App root -->
+  <div id="app" class="relative z-10"></div>
+
+  <!-- Scripts: load in dependency order -->
+  <script src="data.js"></script>
+  <script src="state.js"></script>
+  <script src="render.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
