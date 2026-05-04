@@ -48,7 +48,10 @@ function renderLayout(mainHTML){
     <aside id="sidebar" class="w-56 flex-shrink-0 flex flex-col p-4 gap-2 fixed top-0 left-0 bottom-0 z-50" style="background:rgba(8,8,21,0.95);border-right:1px solid var(--appborder)">
       <div class="flex items-center gap-2 px-2 py-3 mb-2">
         <span class="text-2xl">⚡</span>
-        <span class="font-display font-800 text-xl neon-text" style="font-weight:800">MathBlitz</span>
+        <div class="flex flex-col">
+          <span class="font-display font-800 text-xl neon-text leading-none" style="font-weight:800">MathBlitz</span>
+          <span class="text-[10px] text-slate-400 font-medium mt-1">by Rhithvik Ashok</span>
+        </div>
       </div>
       <!-- User card -->
       <div class="glass p-3 mb-2">
@@ -64,7 +67,10 @@ function renderLayout(mainHTML){
         <div class="xp-bar-track"><div class="xp-bar-fill" style="width:${xpPct}%"></div></div>
       </div>
       <nav class="flex flex-col gap-1 flex-1">${navItems}</nav>
-      <div class="text-xs text-slate-600 px-2 pb-2">Accuracy: ${acc}% · ${S.totalSolved} solved</div>
+      <div class="flex flex-col gap-1 px-2 pb-2">
+        <div class="text-xs text-slate-600">Accuracy: ${acc}% · ${S.totalSolved} solved</div>
+        <div class="text-[10px] text-slate-500">Developed by Rhithvik Ashok</div>
+      </div>
     </aside>
     <!-- Main -->
     <main id="main-content" class="flex-1 ml-56 min-h-screen" style="padding:1.5rem">
@@ -85,6 +91,7 @@ function renderHome(){
     <div class="mb-6">
       <h1 class="font-display text-4xl font-bold neon-text mb-1">Welcome back! 👋</h1>
       <p class="text-slate-400">Ready to blitz some math? Let's go!</p>
+      <p class="text-sm text-slate-300 font-bold mt-3 tracking-wide">By Rhithvik Ashok</p>
     </div>
     <!-- Stats row -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
